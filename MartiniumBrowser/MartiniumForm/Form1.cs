@@ -15,6 +15,7 @@ namespace MartiniumForm
         public Form1()
         {
             InitializeComponent();
+            loader();
         }
     }
 }
