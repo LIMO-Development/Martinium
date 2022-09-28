@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MartiniumForm.exe" size="18400">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MartiniumForm.exe" size="17888">
       <assemblyIdentity name="MartiniumForm" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mWCsitqxaVzqHSBWutVtLORSZ3I0v6Yci9S95gGrMFo=</dsig:DigestValue>
+        <dsig:DigestValue>QcO8BOHv1T2Ir2kae8YsJsPzcTWSXFd4IQDNX6iyb+k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

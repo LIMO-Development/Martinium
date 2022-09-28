@@ -53,6 +53,7 @@ namespace MartiniumForm
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.webContents = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -69,7 +70,7 @@ namespace MartiniumForm
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(993, 649);
+            this.tabControl1.Size = new System.Drawing.Size(Screen.FromControl(this).Bounds.Width, Screen.FromControl(this).Bounds.Height);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -79,7 +80,7 @@ namespace MartiniumForm
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(985, 623);
+            this.tabPage1.Size = new System.Drawing.Size(Screen.FromControl(this.tabControl1).Bounds.Width, Screen.FromControl(this.tabControl1).Bounds.Height);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Tab";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -90,7 +91,7 @@ namespace MartiniumForm
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(2, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(983, 50);
+            this.panel3.Size = new System.Drawing.Size(Screen.FromControl(this.tabPage1).Bounds.Width, 50);
             this.panel3.TabIndex = 1;
             // 
             // panel4
@@ -177,19 +178,26 @@ namespace MartiniumForm
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.vScrollBar1);
             this.panel1.Controls.Add(this.hScrollBar2);
-            this.panel1.Controls.Add(this.hScrollBar1);
+            this.panel1.Controls.Add(this.webContents);
             this.panel1.Location = new System.Drawing.Point(0, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(989, 576);
+            this.panel1.Size = new System.Drawing.Size(Screen.FromControl(this.tabControl1).Bounds.Width, Screen.FromControl(this.tabControl1).Bounds.Height - 170);
             this.panel1.TabIndex = 0;
+            //
+            // webcontents
+            //
+            this.webContents.BackColor = System.Drawing.Color.Transparent;
+            this.webContents.Location = new System.Drawing.Point(0, 0);
+            this.webContents.Size = new System.Drawing.Size(Screen.FromControl(this.tabControl1).Bounds.Width - 40, Screen.FromControl(this.tabControl1).Bounds.Height - 120);
+            this.webContents.TabIndex = 3;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(768, 0);
+            this.panel5.Location = new System.Drawing.Point(Screen.FromControl(this.tabControl1).Bounds.Width - 200, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(197, 552);
+            this.panel5.Size = new System.Drawing.Size(200, Screen.FromControl(this.tabControl1).Bounds.Height - 190);
             this.panel5.TabIndex = 3;
             this.panel5.Visible = false;
             // 
@@ -203,24 +211,24 @@ namespace MartiniumForm
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(965, 0);
+            this.vScrollBar1.Location = new System.Drawing.Point(Screen.FromControl(this.tabControl1).Bounds.Width - 28, 0);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(20, 552);
+            this.vScrollBar1.Size = new System.Drawing.Size(20, Screen.FromControl(this.tabControl1).Bounds.Height - 190);
             this.vScrollBar1.TabIndex = 2;
             // 
             // hScrollBar2
             // 
-            this.hScrollBar2.Location = new System.Drawing.Point(0, 552);
+            this.hScrollBar2.Location = new System.Drawing.Point(0, Screen.FromControl(this.tabControl1).Bounds.Height - 190);
             this.hScrollBar2.Name = "hScrollBar2";
-            this.hScrollBar2.Size = new System.Drawing.Size(966, 20);
-            this.hScrollBar2.TabIndex = 1;
+            this.hScrollBar2.Size = new System.Drawing.Size(Screen.FromControl(this.tabControl1).Bounds.Width - 28, 20);
+            this.hScrollBar2.TabIndex = 0;
             // 
             // hScrollBar1
             // 
-            this.hScrollBar1.Location = new System.Drawing.Point(0, 571);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(962, 14);
-            this.hScrollBar1.TabIndex = 0;
+            //this.hScrollBar1.Location = new System.Drawing.Point(0, Screen.FromControl(this.tabControl1).Bounds.Height - 170);
+            //this.hScrollBar1.Name = "hScrollBar1";
+            //this.hScrollBar1.Size = new System.Drawing.Size(Screen.FromControl(this.tabControl1).Bounds.Width, 14);
+            //this.hScrollBar1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -245,7 +253,8 @@ namespace MartiniumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 651);
+            this.ClientSize = new System.Drawing.Size(Screen.FromControl(this).Bounds.Width, Screen.FromControl(this).Bounds.Height - 80);
+            this.Location = new Point(0, 0);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Martinium - LIMO Development";
@@ -271,21 +280,21 @@ namespace MartiniumForm
                 {
                     if (this.textBox1.Text.Contains(".") && !this.textBox1.Text.Contains(" "))
                     {
-                        this.panel1.Controls.Clear();
+                        this.webContents.Controls.Clear();
                         this.tabPage1.Text = "New Tab";
                         this.topIndex = 0;
                         ParseCHTML("https://" + this.textBox1.Text);
                     }
                     else if (this.textBox1.Text == "mart://chtmltest")
                     {
-                        this.panel1.Controls.Clear();
+                        this.webContents.Controls.Clear();
                         this.tabPage1.Text = "New Tab";
                         this.topIndex = 0;
                         ParseCHTML("https://limodevelopmentcom.ferder.repl.co/chtml/test");
                     }
                     else if (this.textBox1.Text == "mart://limodev")
                     {
-                        this.panel1.Controls.Clear();
+                        this.webContents.Controls.Clear();
                         this.tabPage1.Text = "New Tab";
                         this.topIndex = 0;
                         ParseCHTML("https://limodevelopmentcom.ferder.repl.co");
@@ -299,11 +308,15 @@ namespace MartiniumForm
                 {
                     case true:
                         this.panel5.Visible = false;
+                        this.vScrollBar1.Location = new System.Drawing.Point(Screen.FromControl(this.tabControl1).Bounds.Width - 28, 0);
+                        this.hScrollBar2.Size = new System.Drawing.Size(Screen.FromControl(this.tabControl1).Bounds.Width - 28, 20);
                         this.isShown = false;
                         break;
 
                     case false:
                         this.panel5.Visible = true;
+                        this.vScrollBar1.Location = new System.Drawing.Point(Screen.FromControl(this.tabControl1).Bounds.Width - 220, 0);
+                        this.hScrollBar2.Size = new System.Drawing.Size(Screen.FromControl(this.tabControl1).Bounds.Width - 220, 20);
                         this.isShown = true;
                         break;
                 }
@@ -334,7 +347,7 @@ namespace MartiniumForm
                                         label.Location = new System.Drawing.Point(0, this.topIndex);
                                         label.AutoSize = true;
                                         label.TabIndex = 2;
-                                        this.panel1.Controls.Add(label);
+                                        this.webContents.Controls.Add(label);
                                         topIndex += 30;
                                         break;
 
@@ -351,7 +364,7 @@ namespace MartiniumForm
                                         label2.Location = new System.Drawing.Point(0, this.topIndex);
                                         label2.AutoSize = true;
                                         label2.TabIndex = 2;
-                                        this.panel1.Controls.Add(label2);
+                                        this.webContents.Controls.Add(label2);
                                         topIndex += 30;
                                         break;
 
@@ -369,7 +382,7 @@ namespace MartiniumForm
                                                         CButton button = new CButton(line.Replace("<cbtn>", "").Replace("</cbtn>", ""));
                                                         button.Location = new System.Drawing.Point(0, this.topIndex);
                                                         button.AutoSize = true;
-                                                        this.panel1.Controls.Add(button);
+                                                        this.webContents.Controls.Add(button);
                                                         topIndex += 30;
                                                         break;
 
@@ -474,6 +487,25 @@ namespace MartiniumForm
                                 break;
 
                             case false:
+                                switch (line.StartsWith("theme:"))
+                                {
+                                    case true:
+                                        string theme = line.Replace("theme:", "").Replace(";", "");
+                                        switch (theme)
+                                        {
+                                            case "light":
+                                                this.panel1.BackColor = Color.White;
+                                                break;
+
+                                            case "dark":
+                                                this.panel1.BackColor = Color.Gray;
+                                                break;
+                                        }
+                                        break;
+
+                                    case false:
+                                        break;
+                                }
                                 break;
                         }
                         break;
@@ -486,8 +518,28 @@ namespace MartiniumForm
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel webContents;
         private int topIndex = 0;
         private int[] maxelems = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
+
+        /* events */
+        private static string[] ConscriptEvents = new string[] { CLICK, HOVER, APPENDTEXT, APPENDCHILD, CREATELEMENT };
+
+        // click event
+        private static string CLICK = "click";
+
+        // hover event
+        private static string HOVER = "hover";
+
+        // append-text event
+        private static string APPENDTEXT = "appendtext";
+
+        // append-child event
+        private static string APPENDCHILD = "appendchild";
+
+        // create-element event
+        private static string CREATELEMENT = "createelement";
+
         private bool isShown = false;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.HScrollBar hScrollBar1;

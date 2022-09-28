@@ -9,3 +9,7 @@ C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\obj\Rel
 C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\obj\Release\MartiniumForm.csproj.CoreCompileInputs.cache
 C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\obj\Release\MartiniumForm.exe
 C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\obj\Release\MartiniumForm.pdb
+C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\bin\Release\MartiniumForm.exe.manifest
+C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\bin\Release\MartiniumForm.application
+C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\obj\Release\MartiniumForm.exe.manifest
+C:\Users\42060\Documents\GitHub\Martinium\MartiniumBrowser\MartiniumForm\obj\Release\MartiniumForm.application
