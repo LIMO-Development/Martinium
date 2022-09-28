@@ -1,6 +1,8 @@
 ﻿using System.IO;
 using System.Net.Http;
 using System.Drawing;
+using System;
+using System.Windows.Forms;
 
 namespace MartiniumForm
 {
@@ -36,6 +38,7 @@ namespace MartiniumForm
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -43,6 +46,8 @@ namespace MartiniumForm
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
@@ -53,6 +58,7 @@ namespace MartiniumForm
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,12 +90,13 @@ namespace MartiniumForm
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(2, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(982, 50);
+            this.panel3.Size = new System.Drawing.Size(983, 50);
             this.panel3.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.button2);
@@ -100,6 +107,15 @@ namespace MartiniumForm
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(967, 38);
             this.panel4.TabIndex = 0;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(882, 7);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "DevTools";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -158,6 +174,7 @@ namespace MartiniumForm
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.vScrollBar1);
             this.panel1.Controls.Add(this.hScrollBar2);
             this.panel1.Controls.Add(this.hScrollBar1);
@@ -166,11 +183,29 @@ namespace MartiniumForm
             this.panel1.Size = new System.Drawing.Size(989, 576);
             this.panel1.TabIndex = 0;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Location = new System.Drawing.Point(768, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(197, 552);
+            this.panel5.TabIndex = 3;
+            this.panel5.Visible = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 25);
+            this.panel6.TabIndex = 0;
+            // 
             // vScrollBar1
             // 
             this.vScrollBar1.Location = new System.Drawing.Point(965, 0);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(20, 553);
+            this.vScrollBar1.Size = new System.Drawing.Size(20, 552);
             this.vScrollBar1.TabIndex = 2;
             // 
             // hScrollBar2
@@ -204,7 +239,7 @@ namespace MartiniumForm
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(985, 623);
-            this.panel2.TabIndex = 0;
+            this.panel2.TabIndex = 3;
             // 
             // Form1
             // 
@@ -220,20 +255,57 @@ namespace MartiniumForm
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
+        #endregion
+
         private void loader()
         {
             this.button2.Click += new System.EventHandler((object s, System.EventArgs e) =>
             {
-                if (this.textBox1.Text != null && this.textBox1.Text.StartsWith("https://"))
+                if (this.textBox1.Text != null)
                 {
-                    this.panel1.Controls.Clear();
-                    this.topIndex = 0;
-                    ParseCHTML(this.textBox1.Text);
+                    if (this.textBox1.Text.Contains(".") && !this.textBox1.Text.Contains(" "))
+                    {
+                        this.panel1.Controls.Clear();
+                        this.tabPage1.Text = "New Tab";
+                        this.topIndex = 0;
+                        ParseCHTML("https://" + this.textBox1.Text);
+                    }
+                    else if (this.textBox1.Text == "mart://chtmltest")
+                    {
+                        this.panel1.Controls.Clear();
+                        this.tabPage1.Text = "New Tab";
+                        this.topIndex = 0;
+                        ParseCHTML("https://limodevelopmentcom.ferder.repl.co/chtml/test");
+                    }
+                    else if (this.textBox1.Text == "mart://limodev")
+                    {
+                        this.panel1.Controls.Clear();
+                        this.tabPage1.Text = "New Tab";
+                        this.topIndex = 0;
+                        ParseCHTML("https://limodevelopmentcom.ferder.repl.co");
+                    }
+                }
+            });
+
+            this.button5.Click += new System.EventHandler((object s, System.EventArgs e) =>
+            {
+                switch (this.isShown)
+                {
+                    case true:
+                        this.panel5.Visible = false;
+                        this.isShown = false;
+                        break;
+
+                    case false:
+                        this.panel5.Visible = true;
+                        this.isShown = true;
+                        break;
                 }
             });
         }
@@ -252,32 +324,60 @@ namespace MartiniumForm
                         break;
 
                     case false:
-                        switch (line.StartsWith("<h>"))
+                        switch (line.StartsWith("<h"))
                         {
                             case true:
-                                System.Windows.Forms.Label label = new System.Windows.Forms.Label();
-                                label.Location = new System.Drawing.Point(0, this.topIndex);
-                                label.AutoSize = true;
-                                label.Text = line.Replace("<h>", "").Replace("</h>", "");
-                                label.Font = new Font("Sans-Serif", 14);
-                                this.panel1.Controls.Add(label);
-                                topIndex += 20;
+                                switch (line.StartsWith("<h>"))
+                                {
+                                    case true:
+                                        HeaderLabel label = new HeaderLabel(line.Replace("<h>", "").Replace("</h>", ""));
+                                        label.Location = new System.Drawing.Point(0, this.topIndex);
+                                        label.AutoSize = true;
+                                        label.TabIndex = 2;
+                                        this.panel1.Controls.Add(label);
+                                        topIndex += 30;
+                                        break;
+
+                                    case false:
+                                        break;
+                                }
                                 break;
 
                             case false:
                                 switch (line.StartsWith("<about>")) 
                                 {
                                     case true:
-                                        System.Windows.Forms.Label label2 = new System.Windows.Forms.Label();
+                                        AboutSection label2 = new AboutSection(line.Replace("<about>", "").Replace("</about>", ""));
                                         label2.Location = new System.Drawing.Point(0, this.topIndex);
                                         label2.AutoSize = true;
-                                        label2.Text = line.Replace("<about>", "").Replace("</about>", "");
-                                        label2.Font = new Font("Sans-Serif", 12);
+                                        label2.TabIndex = 2;
                                         this.panel1.Controls.Add(label2);
-                                        topIndex += 20;
+                                        topIndex += 30;
                                         break;
 
                                     case false:
+                                        switch (line.StartsWith("<cimg src=\""))
+                                        {
+                                            case true:
+                                                System.Windows.Forms.Label label3 = new System.Windows.Forms.Label();
+                                                break;
+
+                                            case false:
+                                                switch (line.StartsWith("<cbtn>"))
+                                                {
+                                                    case true:
+                                                        CButton button = new CButton(line.Replace("<cbtn>", "").Replace("</cbtn>", ""));
+                                                        button.Location = new System.Drawing.Point(0, this.topIndex);
+                                                        button.AutoSize = true;
+                                                        this.panel1.Controls.Add(button);
+                                                        topIndex += 30;
+                                                        break;
+
+                                                    case false:
+                                                        break;
+                                                }
+                                                break;
+                                        }
                                         break;
                                 }
                                 break;
@@ -287,7 +387,99 @@ namespace MartiniumForm
             }
         }
 
-        #endregion
+        private void CreateFiles()
+        {
+            string dir = "C:\\Users\\" + Environment.UserName + "\\AppData\\Local\\Martinium", dir2 = dir + "\\themes", file = dir2 + "\\main.martiniumtheme";
+            switch (!Directory.Exists(dir))
+            {
+                case true:
+                    Directory.CreateDirectory(dir);
+                    break;
+
+                case false:
+                    switch (!Directory.Exists(dir2)) 
+                    {
+                        case true:
+                            Directory.CreateDirectory(dir2);
+                            break;
+
+                        case false:
+                            switch (!File.Exists(file))
+                            {
+                                case true:
+                                    File.Create(file);
+                                    break;
+
+                                case false:
+                                    this.ParseTheme(file);
+                                    break;
+                            }
+                            break;
+                    }
+                    break;
+            }
+        }
+
+        private void ParseTheme(string file)
+        {
+            foreach (string line in File.ReadAllLines(file))
+            {
+                switch (line.StartsWith("header-background:") && line.EndsWith(";"))
+                {
+                    case true:
+                        string color = line.Replace("header-background:", "").Replace(";", "");
+                        switch (color.StartsWith("argb(") && color.EndsWith(")"))
+                        {
+                            case false:
+                                switch (color)
+                                {
+                                    case "red":
+                                        this.panel3.BackColor = Color.Red;
+                                        break;
+
+                                    case "orange":
+                                        this.panel3.BackColor = Color.Orange;
+                                        break;
+
+                                    case "yellow":
+                                        this.panel3.BackColor = Color.Yellow;
+                                        break;
+
+                                    case "lime":
+                                        this.panel3.BackColor = Color.Lime;
+                                        break;
+
+                                    case "lightblue":
+                                        this.panel3.BackColor = Color.LightBlue;
+                                        break;
+
+                                    case "blue":
+                                        this.panel3.BackColor = Color.Blue;
+                                        break;
+
+                                    case "magenta":
+                                        this.panel3.BackColor = Color.Magenta;
+                                        break;
+                                }
+                                break;
+                        }
+                        break;
+
+                    case false:
+                        switch (line.StartsWith("background-img:"))
+                        {
+                            case true:
+                                string img = line.Replace("background-img:", "").Replace(";", "");
+                                this.tabControl1.CreateGraphics().FillPolygon(Brushes.Green, new PointF[] { new PointF(0, 0), new PointF(25, 25)});
+                                break;
+
+                            case false:
+                                break;
+                        }
+                        break;
+                }
+            }
+        }
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -296,6 +488,7 @@ namespace MartiniumForm
         private System.Windows.Forms.Panel panel2;
         private int topIndex = 0;
         private int[] maxelems = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
+        private bool isShown = false;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.Panel panel4;
@@ -307,6 +500,9 @@ namespace MartiniumForm
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
+        private Button button5;
+        private Panel panel5;
+        private Panel panel6;
     }
 }
 

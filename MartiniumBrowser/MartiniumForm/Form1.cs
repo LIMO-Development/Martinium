@@ -16,6 +16,7 @@ namespace MartiniumForm
         {
             InitializeComponent();
             loader();
+            CreateFiles();
         }
     }
 }
