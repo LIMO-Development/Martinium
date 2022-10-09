@@ -1,5 +1,7 @@
 ﻿using System.Windows.Forms;
 using HtmlAgilityPack;
+using MetroFramework;
+using MetroFramework.Controls;
 
 namespace src;
 
@@ -38,11 +40,19 @@ partial class Form1
         tab1.Size = new System.Drawing.Size(Screen.FromControl(this).Bounds.Width, Screen.FromControl(this).Bounds.Height - 85);
         tab1.Text = "New Tab";
 
+        // tab2
+        tab2.Size = new System.Drawing.Size(Screen.FromControl(this).Bounds.Width, Screen.FromControl(this).Bounds.Height - 85);
+        tab2.Text = "New Tab";
+
+        // add-tab
+        addtab.Size = new System.Drawing.Size(Screen.FromControl(this).Bounds.Width, Screen.FromControl(this).Bounds.Height - 85);
+        addtab.Text = "+";
+
         // navbar
         navbar.Location = new System.Drawing.Point(0, 0);
         navbar.Size = new System.Drawing.Size(Screen.FromControl(this).Bounds.Width, 35);
         navbar.Text = "New Tab";
-        navbar.BorderStyle = BorderStyle.None;
+        navbar.BorderStyle = System.Windows.Forms.BorderStyle.None;
         navbar.BackColor = System.Drawing.Color.OrangeRed;
 
         // bookmarks button
@@ -56,7 +66,7 @@ partial class Form1
         // adressbar
         adressbar.Location = new System.Drawing.Point(85, 5);
         adressbar.Size = new System.Drawing.Size(Screen.FromControl(this).Bounds.Width - 280, 25);
-        adressbar.BorderStyle = BorderStyle.None;
+        adressbar.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
         // go-to-url button
         gtubtn.Location = new System.Drawing.Point(Screen.FromControl(this).Bounds.Width - 191, 5);
@@ -85,6 +95,8 @@ partial class Form1
         navbar.Controls.Add(adressbar);
         navbar.Controls.Add(gtubtn);
         tabs.Controls.Add(tab1);
+        tabs.Controls.Add(tab2);
+        tabs.Controls.Add(addtab);
 
         // main stuff
         this.Controls.Add(tabs);
@@ -136,6 +148,16 @@ partial class Form1
             topindex += 40;
             webcontents.Controls.Add(label);
         }
+        foreach (HtmlNode p in dn.SelectNodes("//p"))
+        {
+            Label label = new Label();
+            label.Location = new System.Drawing.Point(0, topindex);
+            label.Text = p.InnerText;
+            label.Font = new System.Drawing.Font("Sans-Serif", 30);
+            label.AutoSize = true;
+            topindex += 35;
+            webcontents.Controls.Add(label);
+        }
         foreach (HtmlNode item in dn.SelectNodes("//cdiv"))
         {
             Panel div = new Panel();
@@ -162,8 +184,10 @@ partial class Form1
         tab1.Text = title;
     }
 
-    private TabControl tabs = new TabControl();
-    private TabPage tab1 = new TabPage();
+    private MetroTabControl tabs = new MetroTabControl();
+    private MetroTabPage tab1 = new MetroTabPage();
+    private MetroTabPage tab2 = new MetroTabPage();
+    private MetroTabPage addtab = new MetroTabPage();
     private Panel navbar = new Panel();
     private Panel sidebar = new Panel();
     /* navbar components */
