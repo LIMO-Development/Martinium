@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8gafTNZCynqUXk9LXD06ciLwhCbbfGvd/YohihLumDyNDCmUDFhBlNzY9+nDX1xrfITg9c+FNaOdxjqHq+t/VQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\42060\\Documents\\GitHub\\Martinium\\src\\Martinium\\Martinium.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\42060\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
+  ],
+  "logs": []
+}

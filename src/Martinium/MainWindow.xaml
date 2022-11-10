@@ -1,0 +1,54 @@
+﻿<Window x:Class="Martinium.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Martinium"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Martinium" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="tabStyle" TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border Background="DeepSkyBlue" BorderThickness="0" Width="100px" Height="30px" CornerRadius="15">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75px" />
+                                    <ColumnDefinition Width="25px" />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="New Tab" Grid.Column="0"/>
+                                <Button Background="Transparent" BorderThickness="0" Click="RemoveTabFromTabspace" Grid.Column="1" Height="25px">
+                                    <Label Content="x" />
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="newtabStyle" TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border Background="DeepSkyBlue" BorderBrush="DeepSkyBlue" CornerRadius="15" Height="30px" Width="30px" Margin="5, 0, 0, 0">
+                            <Button Background="Transparent" BorderThickness="0" Click="AddTabToTabspace">
+                                <Label Content="+" FontSize="15px"/>
+                            </Button>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <TabControl x:Name="tabs">
+            <TabItem Style="{StaticResource tabStyle}">
+                <local:InnitNewtab />
+            </TabItem>
+            <TabItem Style="{StaticResource newtabStyle}">
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Martinium", "Martinium\Martinium.csproj", "{7C27A672-24A3-4125-A1DD-4555FC4BDAB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C27A672-24A3-4125-A1DD-4555FC4BDAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C27A672-24A3-4125-A1DD-4555FC4BDAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C27A672-24A3-4125-A1DD-4555FC4BDAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C27A672-24A3-4125-A1DD-4555FC4BDAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59E64973-F0E1-427F-9FD5-7AEF787F5FAA}
+	EndGlobalSection
+EndGlobal
